@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser"
 
 import { gameRouter } from "./routes/game.routes"
 import { authRouter } from "./routes/auth.routes"
+import { errorHandlerMiddleware } from "./middlewares/error-handler.middleware"
 
 export const app = express()
 
@@ -25,3 +26,5 @@ app.use(express.static(__dirname + "/../public"))
 
 app.use("/", gameRouter)
 app.use("/auth", authRouter)
+
+app.use(errorHandlerMiddleware)
