@@ -47,6 +47,8 @@
     signInWithGoogleButton.addEventListener('click', async () => {
         try {
             const result = await signInWithPopup(auth, provider)
+            const idToken = await result.user.getIdToken()
+            document.cookie = "tictactoe.token=" + idToken + ";max-age=" + (60 * 60 * 24 * 5) + ";path=/";
             window.location.href = "/"
         } catch (error) {
             console.error(error)

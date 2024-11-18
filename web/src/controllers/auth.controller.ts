@@ -9,8 +9,7 @@ export class AuthController {
 		this.authService = authService
 	}
 
-	login(req: Request, res: Response) {
-		throw new HTTPError("Teste")
+	async login(req: Request, res: Response) {
 		res.render("login")
 	}
 }
